@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Business from "./pages/bussines/index.tsx";
 import EntertainmentPage from "./pages/entertainment/index.tsx";
 import HealthPage from "./pages/health/index.tsx";
+import SciencePage from "./pages/science/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
     path: "/health",
     element: <HealthPage />,
+  },
+  {
+    path: "/science",
+    element: <SciencePage />,
   },
 ]);
 
