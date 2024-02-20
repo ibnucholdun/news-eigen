@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./pages/home/App.tsx";
+import App from "./pages/lifestyle/App.tsx";
 import "./index.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Business from "./pages/bussines/index.tsx";
+import EntertainmentPage from "./pages/entertainment/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
   {
     path: "/bussines",
     element: <Business />,
+  },
+  {
+    path: "/entertainment",
+    element: <EntertainmentPage />,
   },
 ]);
 
