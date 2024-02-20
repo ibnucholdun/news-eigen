@@ -2,8 +2,8 @@ import { Col, Layout, Row, Flex } from "antd";
 import Navbar from "../Fragments/Navbar";
 import FooterComponent from "../Fragments/FooterComponent";
 import CardNewsRight from "../Fragments/CardNewsRight";
-import React, { useEffect, useState } from "react";
-import services from "../../services";
+import React from "react";
+import useShuffledNews from "../../hooks/useShuffledNews";
 
 const { Content } = Layout;
 
@@ -12,20 +12,7 @@ type Props = {
 };
 
 const HomeLayout: React.FC<Props> = ({ children }) => {
-  const [newsTopHeadlines, setNewsTopHeadlines] = useState<any>([]);
-
-  useEffect(() => {
-    const getNewsTopHeadlines = async () => {
-      try {
-        const { data } = await services.getNewsTopHeadlines();
-        setNewsTopHeadlines(data.articles);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    getNewsTopHeadlines();
-  }, []);
+  const shuffledNews = useShuffledNews();
 
   return (
     <>
@@ -36,9 +23,9 @@ const HomeLayout: React.FC<Props> = ({ children }) => {
             {children}
           </Col>
           <Col span={11} className="gutter-row">
-            <h1 style={{ textDecoration: "underline" }}>Top Headlines</h1>
+            <h1 style={{ textDecoration: "underline" }}>Random News</h1>
             <Flex justify="space-between" gap={24} vertical={false} wrap="wrap">
-              {newsTopHeadlines.map(
+              {shuffledNews.map(
                 (
                   item: {
                     title: string;
