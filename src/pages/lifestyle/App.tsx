@@ -1,10 +1,10 @@
 import "./App.scss";
-import HomeView from "../../components/Views/HomeView";
+import LivestyleView from "../../components/Views/LivestyleView";
 
 function App() {
   return (
     <>
-      <HomeView />
+      <LivestyleView />
     </>
   );
 }

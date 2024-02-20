@@ -7,7 +7,7 @@ import CardNewsLeft from "../Fragments/CardNewsLeft";
 import { Flex } from "antd";
 import CardNewsLeftSkeleton from "../Fragments/CardNewsLeftSkeleton";
 
-const HomeView = () => {
+const LivestyleView = () => {
   const [shuffledNews, setShuffledNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -17,7 +17,7 @@ const HomeView = () => {
       try {
         const { data } = await services.getNewsLifestyle();
         const shuffledNewsArray = useShuffleArray(data.articles);
-        setShuffledNews(shuffledNewsArray);
+        setShuffledNews(shuffledNewsArray.slice(0, 10));
         setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -39,7 +39,7 @@ const HomeView = () => {
               <CardNewsLeft
                 key={index}
                 title={item.title}
-                tag={item.source.name}
+                tag={"Lifestyle"}
                 link={item.url}
                 image={item.urlToImage}
                 description={item.description}
@@ -52,4 +52,4 @@ const HomeView = () => {
   );
 };
 
-export default HomeView;
+export default LivestyleView;
