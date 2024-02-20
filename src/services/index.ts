@@ -78,6 +78,14 @@ const services = {
       }`
     );
   },
+
+  getNewsSearch: async (query: string) => {
+    return await instance.get(
+      `${import.meta.env.VITE_BASE_URL}everything?q=${query}&apiKey=${
+        import.meta.env.VITE_API_KEY
+      }`
+    );
+  },
 };
 
 export default services;

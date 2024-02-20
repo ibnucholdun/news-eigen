@@ -3,6 +3,7 @@ import styles from "./navbar.module.scss";
 import type { SearchProps } from "antd/es/input/Search";
 import { Flex, Layout, Menu } from "antd";
 import { Link, useLocation } from "react-router-dom";
+import React from "react";
 
 const { Header } = Layout;
 
@@ -37,10 +38,12 @@ const menuItems = [
   },
 ];
 
-const Navbar = () => {
+type Props = {
+  onSearch: SearchProps["onSearch"];
+};
+
+const Navbar: React.FC<Props> = ({ onSearch }) => {
   const { pathname } = useLocation();
-  const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
-    console.log(info?.source, value);
   return (
     <div className={styles.navbar}>
       <Flex justify="space-between" align="center">
