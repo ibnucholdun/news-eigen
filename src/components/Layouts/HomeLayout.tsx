@@ -4,7 +4,7 @@ import FooterComponent from "../Fragments/FooterComponent";
 import CardNewsRight from "../Fragments/CardNewsRight";
 import React from "react";
 import useShuffledNews from "../../hooks/useShuffledNews";
-
+import CardNewsRightSkeleton from "../Fragments/CardNewsRightSkeleton";
 const { Content } = Layout;
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
 };
 
 const HomeLayout: React.FC<Props> = ({ children }) => {
-  const shuffledNews = useShuffledNews();
+  const { shuffledNews, loading } = useShuffledNews();
 
   return (
     <>
@@ -25,32 +25,38 @@ const HomeLayout: React.FC<Props> = ({ children }) => {
           <Col span={11} className="gutter-row">
             <h1 style={{ textDecoration: "underline" }}>Random News</h1>
             <Flex justify="space-between" gap={24} vertical={false} wrap="wrap">
-              {shuffledNews.map(
-                (
-                  item: {
-                    title: string;
-                    source: { name: string };
-                    urlToImage: string;
-                    url: string;
-                    publishedAt: string;
-                  },
-                  index: number
-                ) => (
-                  <CardNewsRight
-                    key={index}
-                    title={item.title}
-                    source={item.url}
-                    image={
-                      item.urlToImage !== null
-                        ? item.urlToImage
-                        : "/placeholderImage.png"
-                    }
-                    tag={item.source.name}
-                    link={item.url}
-                    date={new Date(item.publishedAt).toISOString().slice(0, 10)}
-                  />
-                )
-              )}
+              {loading
+                ? [...Array(6)].map((_, index) => (
+                    <CardNewsRightSkeleton key={index} loading={loading} />
+                  ))
+                : shuffledNews.map(
+                    (
+                      item: {
+                        title: string;
+                        source: { name: string };
+                        urlToImage: string;
+                        url: string;
+                        publishedAt: string;
+                      },
+                      index: number
+                    ) => (
+                      <CardNewsRight
+                        key={index}
+                        title={item.title}
+                        source={item.url}
+                        image={
+                          item.urlToImage !== null
+                            ? item.urlToImage
+                            : "/placeholderImage.png"
+                        }
+                        tag={item.source.name}
+                        link={item.url}
+                        date={new Date(item.publishedAt)
+                          .toISOString()
+                          .slice(0, 10)}
+                      />
+                    )
+                  )}
             </Flex>
           </Col>
         </Row>
