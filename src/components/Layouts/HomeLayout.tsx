@@ -43,7 +43,9 @@ const HomeLayout: React.FC<Props> = ({ children }) => {
             {children}
           </Col>
           <Col span={11} className="gutter-row">
-            <h1 style={{ textDecoration: "underline" }}>Random News</h1>
+            <h1 style={{ textDecoration: "underline", marginTop: 0 }}>
+              Random News
+            </h1>
             <Flex justify="space-between" gap={24} vertical={false} wrap="wrap">
               {loading
                 ? [...Array(6)].map((_, index) => (

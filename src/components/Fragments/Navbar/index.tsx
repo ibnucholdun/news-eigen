@@ -8,7 +8,7 @@ const { Header } = Layout;
 
 const menuItems = [
   {
-    label: "Home",
+    label: "Lifestyle",
     key: "/",
   },
   {
@@ -18,10 +18,6 @@ const menuItems = [
   {
     label: "Entertainment",
     key: "/entertainment",
-  },
-  {
-    label: "General",
-    key: "/general",
   },
   {
     label: "Health",
