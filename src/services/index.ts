@@ -18,6 +18,16 @@ const services = {
       }`
     );
   },
+
+  getNewsBusiness: async () => {
+    return await instance.get(
+      `${
+        import.meta.env.VITE_BASE_URL
+      }top-headlines?country=us&category=business&apiKey=${
+        import.meta.env.VITE_API_KEY
+      }`
+    );
+  },
 };
 
 export default services;

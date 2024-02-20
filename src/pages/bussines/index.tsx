@@ -1,7 +1,9 @@
+import BusinessView from "../../components/Views/BusinessView";
+
 const Business = () => {
   return (
     <>
-      <h1>Business</h1>
+      <BusinessView />
     </>
   );
 };

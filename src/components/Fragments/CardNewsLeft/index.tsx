@@ -52,7 +52,7 @@ const CardNewsLeft: React.FC<Props> = ({
       <p>
         Source:{" "}
         <a href={source} style={{ textDecoration: "underline" }}>
-          {tag}
+          {title}
         </a>
       </p>
     </Card>
