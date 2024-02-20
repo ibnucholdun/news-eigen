@@ -2,9 +2,11 @@ import { Col, Layout, Row, Flex } from "antd";
 import Navbar from "../Fragments/Navbar";
 import FooterComponent from "../Fragments/FooterComponent";
 import CardNewsRight from "../Fragments/CardNewsRight";
-import React from "react";
-import useShuffledNews from "../../hooks/useShuffledNews";
+import React, { useEffect, useState } from "react";
 import CardNewsRightSkeleton from "../Fragments/CardNewsRightSkeleton";
+import { useNavigate } from "react-router-dom";
+import services from "../../services";
+import useShuffleArray from "../../hooks/useShuffleArray";
 const { Content } = Layout;
 
 type Props = {
@@ -12,7 +14,25 @@ type Props = {
 };
 
 const HomeLayout: React.FC<Props> = ({ children }) => {
-  const { shuffledNews, loading } = useShuffledNews();
+  const [shuffledNews, setShuffledNews] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await services.getNewsTopHeadlines();
+        const shuffledNewsArray = useShuffleArray(data.articles);
+        setShuffledNews(shuffledNewsArray);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        navigate("/error");
+      }
+    };
+
+    fetchData();
+  }, [navigate]);
 
   return (
     <>

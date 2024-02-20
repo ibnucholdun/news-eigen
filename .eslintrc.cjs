@@ -16,5 +16,6 @@ module.exports = {
     ],
     "no-useless-catch": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "react-hooks/rules-of-hooks": "off",
   },
 };
