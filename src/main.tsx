@@ -9,11 +9,13 @@ import HealthPage from "./pages/health/index.tsx";
 import SciencePage from "./pages/science/index.tsx";
 import SportsPage from "./pages/sports/index.tsx";
 import TechnologyPage from "./pages/technology/index.tsx";
+import ErrorPage from "./pages/404/index.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/bussines",
