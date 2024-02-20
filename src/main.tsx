@@ -5,6 +5,7 @@ import "./index.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Business from "./pages/bussines/index.tsx";
 import EntertainmentPage from "./pages/entertainment/index.tsx";
+import HealthPage from "./pages/health/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/entertainment",
     element: <EntertainmentPage />,
+  },
+  {
+    path: "/health",
+    element: <HealthPage />,
   },
 ]);
 
