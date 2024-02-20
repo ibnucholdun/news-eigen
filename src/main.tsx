@@ -8,6 +8,7 @@ import EntertainmentPage from "./pages/entertainment/index.tsx";
 import HealthPage from "./pages/health/index.tsx";
 import SciencePage from "./pages/science/index.tsx";
 import SportsPage from "./pages/sports/index.tsx";
+import TechnologyPage from "./pages/technology/index.tsx";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/sports",
     element: <SportsPage />,
+  },
+  {
+    path: "/technology",
+    element: <TechnologyPage />,
   },
 ]);
 
