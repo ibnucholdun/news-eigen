@@ -35,8 +35,8 @@ const CardNewsLeft: React.FC<Props> = ({
               style={{
                 textDecoration: "underline",
                 whiteSpace: "wrap",
-              }}
-              type="secondary">
+                cursor: "pointer",
+              }}>
               {title}
             </Title>
           </Link>

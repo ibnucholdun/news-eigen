@@ -7,7 +7,7 @@ import CardNewsLeft from "../Fragments/CardNewsLeft";
 import { Flex } from "antd";
 import CardNewsLeftSkeleton from "../Fragments/CardNewsLeftSkeleton";
 
-const LivestyleView = () => {
+const LifestyleView = () => {
   const [shuffledNews, setShuffledNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -52,4 +52,4 @@ const LivestyleView = () => {
   );
 };
 
-export default LivestyleView;
+export default LifestyleView;

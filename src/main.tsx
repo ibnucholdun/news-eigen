@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./pages/lifestyle/App.tsx";
 import "./index.scss";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Business from "./pages/bussines/index.tsx";
@@ -10,11 +9,12 @@ import SciencePage from "./pages/science/index.tsx";
 import SportsPage from "./pages/sports/index.tsx";
 import TechnologyPage from "./pages/technology/index.tsx";
 import ErrorPage from "./pages/404/index.tsx";
+import LifestylePage from "./pages/lifestyle/index.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <LifestylePage />,
     errorElement: <ErrorPage />,
   },
   {
